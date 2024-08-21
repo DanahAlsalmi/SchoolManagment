@@ -17,27 +17,27 @@ public class AddressController {
 
     @GetMapping("/get")
     public ResponseEntity getProfile() {
-        return ResponseEntity.ok(addressService.getProfile());
+        return ResponseEntity.status(200).body(addressService.getProfile());
     }
     @PostMapping("/add")
     public ResponseEntity addProfile(@Valid @RequestBody AddressDTO profile) {
         addressService.addProfile(profile);
-        return ResponseEntity.ok("address added successfully");
+        return ResponseEntity.status(200).body("Profile added successfully");
 
     }
     @PutMapping("/update")
     public ResponseEntity updateProfile(@Valid @RequestBody AddressDTO profile) {
         addressService.updateProfile(profile);
-        return ResponseEntity.ok("address updated successfully");
+        return ResponseEntity.status(200).body("Profile updated successfully");
     }
     @DeleteMapping("/delete/{id}")
     public ResponseEntity deleteProfile(@PathVariable int id) {
         addressService.deleteProfile(id);
-        return ResponseEntity.ok("address deleted successfully");
+        return ResponseEntity.status(200).body("Profile deleted successfully");
     }
-    @GetMapping("/{teacherId}")
+    @GetMapping("/teacher/{teacherId}")
     public ResponseEntity getTeacherDetails(@PathVariable Integer teacherId) {
         Teacher teacher = addressService.getTeacherDetails(teacherId);
-        return ResponseEntity.ok(teacher);
+        return ResponseEntity.status(200).body(teacher);
     }
 }

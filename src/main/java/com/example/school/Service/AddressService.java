@@ -17,13 +17,16 @@ public class AddressService {
     private final AddressRepository addressRepository;
     private final TeacherRepository teacherRepository;
 
+    //Get
     public List<Address> getProfile() {
         return addressRepository.findAll();
     }
+
+    //Add
     public void addProfile(AddressDTO addressDTO) {
         Teacher teacher = teacherRepository.findTeacherByid(addressDTO.getTeacher_id());
         if (teacher == null) {
-            throw new ApiException("teach not found");
+            throw new ApiException("Teacher Not Found");
         }
 
         Address address1 = new Address(null,addressDTO.getArea(),addressDTO.getStreet(),addressDTO.getBuildingNo(), teacher);
@@ -31,10 +34,11 @@ public class AddressService {
 
 
     }
+    //Update
     public void updateProfile(AddressDTO addressDTO) {
             Address address1 = addressRepository.findAddressByid(addressDTO.getTeacher_id());
         if (address1 == null) {
-            throw new ApiException("teach not found");
+            throw new ApiException("Teacher Not Found");
         }
         address1.setArea(addressDTO.getArea());
         address1.setStreet(addressDTO.getStreet());
@@ -42,17 +46,19 @@ public class AddressService {
         addressRepository.save(address1);
     }
 
+    //Delete
     public void deleteProfile(Integer id) {
         Teacher address = teacherRepository.findTeacherByid(id);
         if (address == null) {
-            throw new ApiException("address not found");
+            throw new ApiException("Address Not Found");
         }
         teacherRepository.delete(address);
     }
+    //Details
     public Teacher getTeacherDetails(Integer teacherId) {
         Teacher teacher = teacherRepository.findTeacherByid(teacherId);
         if (teacher == null) {
-            throw new ApiException("Teacher not found");
+            throw new ApiException("Teacher Not Found");
         }
         return teacher;
     }

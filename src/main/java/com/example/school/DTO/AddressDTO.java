@@ -11,14 +11,13 @@ public class AddressDTO {
     private Integer teacher_id;
 
 
-    @NotEmpty(message = "area cannot be null or empty")
-
+    @NotEmpty(message = "Area cannot be null or empty")
     private String area;
-    @NotEmpty(message = "street cannot be null or empty")
 
+    @NotEmpty(message = "Street cannot be null or empty")
     private String street;
-    @NotNull(message = "buildingNo cannot be null or empty")
 
+    @NotNull(message = "Building No cannot be null or empty")
     private int buildingNo;
 
 

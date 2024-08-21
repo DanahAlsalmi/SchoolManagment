@@ -21,19 +21,19 @@ public class TeacherController {
     @PostMapping("/add")
     public ResponseEntity addCustomer(@Valid @RequestBody Teacher teacher) {
         teacherService.addCustomer(teacher);
-        return ResponseEntity.status(200).body("teach added");
+        return ResponseEntity.status(200).body("Teacher added successfully");
     }
 
     @PutMapping("/upadte/{id}")
     public ResponseEntity updateCustomer(@PathVariable Integer id, @Valid @RequestBody Teacher teacher) {
         teacherService.updateCustomer(id, teacher);
-        return ResponseEntity.status(200).body("teach updated");
+        return ResponseEntity.status(200).body("Teacher updated successfully");
     }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity deleteCustomer(@PathVariable Integer id) {
         teacherService.deleteCustomer(id);
-        return ResponseEntity.status(200).body("teach deleted");
+        return ResponseEntity.status(200).body("Teacher deleted successfully");
     }
 
 }

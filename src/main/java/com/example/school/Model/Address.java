@@ -14,13 +14,15 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 public class Address {
+
     @Id
     private Integer id;
 
-
     private String area;
+
     private String street;
     private int buildingNo;
+
     @OneToOne
     @MapsId
     @JsonIgnore
