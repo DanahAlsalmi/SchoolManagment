@@ -18,12 +18,12 @@ public class AddressService {
     private final TeacherRepository teacherRepository;
 
     //Get
-    public List<Address> getProfile() {
+    public List<Address> getAddress() {
         return addressRepository.findAll();
     }
 
     //Add
-    public void addProfile(AddressDTO addressDTO) {
+    public void addAddress(AddressDTO addressDTO) {
         Teacher teacher = teacherRepository.findTeacherByid(addressDTO.getTeacher_id());
         if (teacher == null) {
             throw new ApiException("Teacher Not Found");
@@ -35,7 +35,7 @@ public class AddressService {
 
     }
     //Update
-    public void updateProfile(AddressDTO addressDTO) {
+    public void updateAddress(AddressDTO addressDTO) {
             Address address1 = addressRepository.findAddressByid(addressDTO.getTeacher_id());
         if (address1 == null) {
             throw new ApiException("Teacher Not Found");
@@ -47,7 +47,7 @@ public class AddressService {
     }
 
     //Delete
-    public void deleteProfile(Integer id) {
+    public void deleteAddress(Integer id) {
         Teacher address = teacherRepository.findTeacherByid(id);
         if (address == null) {
             throw new ApiException("Address Not Found");

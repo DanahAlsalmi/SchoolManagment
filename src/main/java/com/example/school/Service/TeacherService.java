@@ -14,15 +14,15 @@ public class TeacherService {
     private final TeacherRepository teacherRepository;
 
     //get
-    public List<Teacher> getAllCustomers() {
+    public List<Teacher> getAllTeacher() {
         return teacherRepository.findAll();
     }
     //add
-    public void addCustomer(Teacher teacher) {
+    public void addTeacher(Teacher teacher) {
         teacherRepository.save(teacher);
     }
     //update
-    public void updateCustomer(Integer id, Teacher teacher) {
+    public void updateTeacher(Integer id, Teacher teacher) {
         Teacher teacher1 = teacherRepository.findTeacherByid(id);
         if (teacher1 == null) {
             throw new ApiException("Teacher Not Found");
@@ -33,7 +33,7 @@ public class TeacherService {
         teacherRepository.save(teacher1);
     }
     //Delete
-    public void deleteCustomer(Integer id) {
+    public void deleteTeacher(Integer id) {
         Teacher teacher = teacherRepository.findTeacherByid(id);
         if (teacher == null) {
             throw new ApiException("Teacher Not Found");

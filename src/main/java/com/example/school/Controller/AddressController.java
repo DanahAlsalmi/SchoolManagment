@@ -16,23 +16,23 @@ public class AddressController {
 
 
     @GetMapping("/get")
-    public ResponseEntity getProfile() {
-        return ResponseEntity.status(200).body(addressService.getProfile());
+    public ResponseEntity getAddress() {
+        return ResponseEntity.status(200).body(addressService.getAddress());
     }
     @PostMapping("/add")
-    public ResponseEntity addProfile(@Valid @RequestBody AddressDTO profile) {
-        addressService.addProfile(profile);
+    public ResponseEntity addAddress(@Valid @RequestBody AddressDTO profile) {
+        addressService.addAddress(profile);
         return ResponseEntity.status(200).body("Profile added successfully");
 
     }
     @PutMapping("/update")
-    public ResponseEntity updateProfile(@Valid @RequestBody AddressDTO profile) {
-        addressService.updateProfile(profile);
+    public ResponseEntity updateAddress(@Valid @RequestBody AddressDTO profile) {
+        addressService.updateAddress(profile);
         return ResponseEntity.status(200).body("Profile updated successfully");
     }
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity deleteProfile(@PathVariable int id) {
-        addressService.deleteProfile(id);
+    public ResponseEntity deleteAddress(@PathVariable int id) {
+        addressService.deleteAddress(id);
         return ResponseEntity.status(200).body("Profile deleted successfully");
     }
     @GetMapping("/teacher/{teacherId}")

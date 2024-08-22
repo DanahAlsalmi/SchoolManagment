@@ -14,25 +14,25 @@ public class TeacherController {
     private final TeacherService teacherService;
 
     @GetMapping("/get")
-    public ResponseEntity getCustomer() {
-        return ResponseEntity.status(200).body(teacherService.getAllCustomers());
+    public ResponseEntity getTeachers() {
+        return ResponseEntity.status(200).body(teacherService.getAllTeacher());
     }
 
     @PostMapping("/add")
-    public ResponseEntity addCustomer(@Valid @RequestBody Teacher teacher) {
-        teacherService.addCustomer(teacher);
+    public ResponseEntity addTeacher(@Valid @RequestBody Teacher teacher) {
+        teacherService.addTeacher(teacher);
         return ResponseEntity.status(200).body("Teacher added successfully");
     }
 
     @PutMapping("/upadte/{id}")
-    public ResponseEntity updateCustomer(@PathVariable Integer id, @Valid @RequestBody Teacher teacher) {
-        teacherService.updateCustomer(id, teacher);
+    public ResponseEntity updateTeacher(@PathVariable Integer id, @Valid @RequestBody Teacher teacher) {
+        teacherService.updateTeacher(id, teacher);
         return ResponseEntity.status(200).body("Teacher updated successfully");
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity deleteCustomer(@PathVariable Integer id) {
-        teacherService.deleteCustomer(id);
+    public ResponseEntity deleteTeacher(@PathVariable Integer id) {
+        teacherService.deleteTeacher(id);
         return ResponseEntity.status(200).body("Teacher deleted successfully");
     }
 
